@@ -32,7 +32,7 @@ namespace SimAirportStatsViewer
     /// </summary>
     public partial class MainWindow : Window
     {
-        private IEnumerable<GameReport> ReadReports(string inputFilename)
+        private IList<GameReport> ReadReports(string inputFilename)
         {
             dynamic d = JObject.Parse(File.ReadAllText(inputFilename));
             var gameReports = d["GameReports"];
@@ -99,7 +99,7 @@ namespace SimAirportStatsViewer
             PlotModels.Add(GeneratePlot(reports, "FlightsCount"));
             PlotModels.Add(GeneratePlot(reports, "FlightsCanceled"));
             PlotModels.Add(GeneratePlot(reports, "FlightsDelayed"));
-            Application.Current.Shutdown();
+
             DataContext = this;
         }
     }
