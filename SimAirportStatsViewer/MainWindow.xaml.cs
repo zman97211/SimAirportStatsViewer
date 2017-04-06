@@ -87,18 +87,19 @@ namespace SimAirportStatsViewer
 
             var inputFilename = @"C:\Users\steve\Desktop\README.airport.json";
 
-            PlotModels.Add(GeneratePlot(ReadReports(inputFilename), "s_sentiment"));
-            PlotModels.Add(GeneratePlot(ReadReports(inputFilename), "s_i"));
-            PlotModels.Add(GeneratePlot(ReadReports(inputFilename), "n_carousels"));
-            PlotModels.Add(GeneratePlot(ReadReports(inputFilename), "ScheduledPassengers_Departures"));
-            PlotModels.Add(GeneratePlot(ReadReports(inputFilename), "MissedFlight"));
-            PlotModels.Add(GeneratePlot(ReadReports(inputFilename), "BoardedFlight"));
-            PlotModels.Add(GeneratePlot(ReadReports(inputFilename), "LuggageLost"));
-            PlotModels.Add(GeneratePlot(ReadReports(inputFilename), "LuggageSucceeded"));
-            PlotModels.Add(GeneratePlot(ReadReports(inputFilename), "FlightsCount"));
-            PlotModels.Add(GeneratePlot(ReadReports(inputFilename), "FlightsCanceled"));
-            PlotModels.Add(GeneratePlot(ReadReports(inputFilename), "FlightsDelayed"));
-
+            var reports = ReadReports(inputFilename);
+            PlotModels.Add(GeneratePlot(reports, "s_sentiment"));
+            PlotModels.Add(GeneratePlot(reports, "s_i"));
+            PlotModels.Add(GeneratePlot(reports, "n_carousels"));
+            PlotModels.Add(GeneratePlot(reports, "ScheduledPassengers_Departures"));
+            PlotModels.Add(GeneratePlot(reports, "MissedFlight"));
+            PlotModels.Add(GeneratePlot(reports, "BoardedFlight"));
+            PlotModels.Add(GeneratePlot(reports, "LuggageLost"));
+            PlotModels.Add(GeneratePlot(reports, "LuggageSucceeded"));
+            PlotModels.Add(GeneratePlot(reports, "FlightsCount"));
+            PlotModels.Add(GeneratePlot(reports, "FlightsCanceled"));
+            PlotModels.Add(GeneratePlot(reports, "FlightsDelayed"));
+            Application.Current.Shutdown();
             DataContext = this;
         }
     }
